@@ -1,0 +1,35 @@
+{
+  "name": "gulios/xsl-laravel-template-engine",
+  "description": "Xslt template engine for laravel. Based on krowinski/laravel-xslt.",
+  "keywords": [
+    "laravel",
+    "XSLT",
+    "template",
+    "view"
+  ],
+  "authors": [
+    {
+      "name": "Artur Gulios Milkowski",
+      "email": "gulios@gulios.pl"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=5.4.0",
+        "illuminate/support": "5.*",
+        "illuminate/view": "5.*",
+        "illuminate/config": "5.*",
+        "illuminate/console": "5.*",
+        "illuminate/events": "5.*"
+  },
+  "require-dev": {
+  },
+  "suggest": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Gulios\\LaravelXSLT\\": "src/"
+    }
+  },
+  "minimum-stability": "stable"
+}
