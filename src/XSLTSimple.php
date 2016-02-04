@@ -33,11 +33,11 @@ final class XSLTSimple extends \SimpleXMLElement
             {
                 if (true === $attributes)
                 {
-                    $this->addAttribute($key, htmlentities($value));
+                    $this->addAttribute($key, htmlspecialchars($value));
                 }
                 else
                 {
-                    $this->addChild($key, htmlentities($value));
+                    $this->addChild($key, htmlspecialchars($value));
                 }
             }
         }

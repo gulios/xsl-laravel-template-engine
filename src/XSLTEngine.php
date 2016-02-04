@@ -73,13 +73,16 @@ class XSLTEngine implements EngineInterface
         if (true === class_exists('Debugbar'))
         {
             // xml formating for Debugbar
-            $dom = new \DOMDocument('1.0', 'UTF-8');
-            $dom->preserveWhiteSpace = false;
+            //$dom = new \DOMDocument('1.0', 'UTF-8');
+            //$dom->preserveWhiteSpace = false;
 
-            $dom->loadXML(html_entity_decode($this->XSLTSimple->saveXML()));
-            $dom->formatOutput = true;
-            $xml_string = $dom->saveXml();
+            //$dom->loadXML($this->XSLTSimple->saveXML());
+            //$dom->formatOutput = true;
+            //$xml_string = $dom->saveXml();
 
+            $xml = $this->XSLTSimple->saveXML();
+
+            $xml_string = simplexml_load_string($xml);
             // add new tab and append xml to it
             if (false === \Debugbar::hasCollector('XML'))
             {
