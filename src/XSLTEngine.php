@@ -5,6 +5,7 @@ use Illuminate\View\Engines\EngineInterface;
 use Illuminate\Support\Facades\URL;
 use Request;
 use App;
+use Illuminate\Support\Facades\Route;
 
 /**
  * Class XSLTEngine
@@ -72,15 +73,17 @@ class XSLTEngine implements EngineInterface
         // adding XML tab
         if (true === class_exists('Debugbar'))
         {
-            // xml formating for Debugbar
-            $xml_string = simplexml_load_string($this->XSLTSimple->saveXML());
+            $dom = dom_import_simplexml($this->XSLTSimple)->ownerDocument;
+            $dom->preserveWhiteSpace = false;
+            $dom->formatOutput = true;
+            $prettyXml = $dom->saveXML();
 
             // add new tab and append xml to it
             if (false === \Debugbar::hasCollector('XML'))
             {
                 \Debugbar::addCollector(new \DebugBar\DataCollector\MessagesCollector('XML'));
             }
-            \Debugbar::getCollector('XML')->addMessage($xml_string, 'info', false);
+            \Debugbar::getCollector('XML')->addMessage($prettyXml, 'info', false);
         }
 
         $xsl_processor = new \XsltProcessor();
