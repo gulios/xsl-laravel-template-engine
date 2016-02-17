@@ -69,6 +69,18 @@ class XSLTEngine implements EngineInterface
             }
         }
 
+        // from form generator
+        if (isset($data['form']))
+        {
+            $this->XSLTSimple->addChild('Form', form($data['form']));
+        }
+
+        // adding form errors to xml
+        if (isset($data['errors']))
+        {
+            $this->XSLTSimple->addData($data['errors']->all(), 'FormErrors', false);
+        }
+
         // "barryvdh/laravel-debugbar":
         // adding XML tab
         if (true === class_exists('Debugbar'))
