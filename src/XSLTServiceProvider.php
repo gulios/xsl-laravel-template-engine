@@ -14,8 +14,7 @@ class XSLTServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['view'] = $this->app->share(function ($app)
-        {
+        $this->app->singleton('view', function ($app) {
             $factory = new XSLTFactory($app['view.engine.resolver'], $app['view.finder'], $app['events'], $this->app['config'], new XSLTSimple('<App/>'));
             $factory->setContainer($app);
             return $factory;
