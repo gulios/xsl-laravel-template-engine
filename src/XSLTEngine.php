@@ -1,7 +1,7 @@
 <?php
 namespace Gulios\LaravelXSLT;
 
-use Illuminate\View\Engines\EngineInterface;
+use Illuminate\Contracts\View\Engine;
 use Illuminate\Support\Facades\URL;
 use Request;
 use App;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
  * Class XSLTEngine
  * @package Gulios\LaravelXSLT
  */
-class XSLTEngine implements EngineInterface
+class XSLTEngine implements Engine
 {
     /**
      * @param string $path
