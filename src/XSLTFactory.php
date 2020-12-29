@@ -1,6 +1,7 @@
 <?php
 namespace Gulios\LaravelXSLT;
 
+use Exception;
 use ReflectionClass;
 use Illuminate\View\Factory;
 use Illuminate\View\ViewFinderInterface;
@@ -39,14 +40,14 @@ class XSLTFactory extends Factory
      * @param $name
      * @param $arguments
      * @return mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public function __call($name, $arguments)
     {
         $reflectionClass = new ReflectionClass($this->XSLTSimple);
         if (!$reflectionClass->hasMethod($name))
         {
-            throw new \Exception($name . ': Method Not Found');
+            throw new Exception($name . ': Method Not Found');
         }
         return call_user_func_array([$this->XSLTSimple, $name], $arguments);
     }

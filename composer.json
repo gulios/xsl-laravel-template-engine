@@ -15,12 +15,14 @@
   ],
   "license": "MIT",
   "require": {
-    "php": ">=5.4.0",
-        "illuminate/support": "5.*",
-        "illuminate/view": "5.*",
-        "illuminate/config": "5.*",
-        "illuminate/console": "5.*",
-        "illuminate/events": "5.*"
+    "php": "7.4.*",
+    "ext-simplexml": "*",
+
+    "illuminate/support": "8.*",
+    "illuminate/view": "8.*",
+    "illuminate/config": "8.*",
+    "illuminate/console": "8.*",
+    "illuminate/events": "8.*"
   },
   "require-dev": {
   },

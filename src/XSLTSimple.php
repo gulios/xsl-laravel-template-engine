@@ -1,11 +1,13 @@
 <?php
 namespace Gulios\LaravelXSLT;
 
+use SimpleXMLElement;
+
 /**
  * Class XSLTSimple
  * @package Gulios\LaravelXSLT
  */
-final class XSLTSimple extends \SimpleXMLElement
+final class XSLTSimple extends SimpleXMLElement
 {
     /**
      * @param $data
@@ -47,7 +49,6 @@ final class XSLTSimple extends \SimpleXMLElement
     /**
      * @param $data
      * @param $tagName
-     * @param string $rowTagName
      * @param bool $attributes
      * @return mixed
      */
